@@ -4,11 +4,9 @@ import AlohaDashboard from './components/AlohaDashboard';
 //import Aloha from './components/Greeting';
 
 
-class App extends React.Component{
+function App (){
 
-  
-render () {
   return <AlohaDashboard />
-}
+
 }
 export default App;

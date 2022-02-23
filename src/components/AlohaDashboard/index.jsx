@@ -45,19 +45,17 @@ class AlohaDashboard extends React.Component{
           isDirectSort: !isDirectSort
         })
       }
+    mapAloha = ({firstName, lastName, id})=>  <Aloha name = {`${firstName} ${lastName}`} isGreeting key = {id} id = {id}/>;
+
     
     render () {
       const {users} = this.state;
-      const liArray = users.map(({firstName, lastName, id})=> {
-        return  <Aloha name = {`${firstName} ${lastName}`} isGreeting key = {id} id = {id}/>
-        
-      })
+     
       return (
-    
       <>
       <button onClick={this.sortUser}>Sort user</button>
        <ul>
-        {liArray}
+       {users.map(this.mapAloha)}
        </ul>
       </>
       )
