@@ -7,6 +7,7 @@ class App extends React.Component{
   constructor (props) {
     super(props);
     this.state = {
+      isDirectSort: true,
       users: [{
         id: 1,
         firstName: 'John',
@@ -35,6 +36,21 @@ class App extends React.Component{
     ]
     }
   }
+  sortUser = () => {
+    const {users, isDirectSort} = this.state;
+    const copyArray = [...users];
+//const copy = JSON.parse(JCON.stringify(users));
+    this.setState({
+      users:copyArray.sort((a,b) => {
+        if (isDirectSort){
+          return a.id - b.id
+        }
+        return b.id - a.id
+       
+      }),
+      isDirectSort: !isDirectSort
+    })
+  }
 
 render () {
   const {users} = this.state;
@@ -43,10 +59,10 @@ render () {
        <Aloha name = {`${user.firstName} ${user.lastName}`} isGreeting/>
     </li>
   })
-  console.log(liArray);
   return (
 
   <>
+  <button onClick={this.sortUser}>Sort user</button>
    <ul>
     {liArray}
    </ul>
