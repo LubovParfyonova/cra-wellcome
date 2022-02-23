@@ -1,6 +1,6 @@
 import React from 'react';
-
 import Aloha from '../Greeting';
+import AlohaList from '../AlohaList';
 
 class AlohaDashboard extends React.Component{
     constructor (props) {
@@ -45,7 +45,6 @@ class AlohaDashboard extends React.Component{
           isDirectSort: !isDirectSort
         })
       }
-    mapAloha = ({firstName, lastName, id})=>  <Aloha name = {`${firstName} ${lastName}`} isGreeting key = {id} id = {id}/>;
 
     
     render () {
@@ -54,9 +53,7 @@ class AlohaDashboard extends React.Component{
       return (
       <>
       <button onClick={this.sortUser}>Sort user</button>
-       <ul>
-       {users.map(this.mapAloha)}
-       </ul>
+        <AlohaList users = {users} />
       </>
       )
     }
