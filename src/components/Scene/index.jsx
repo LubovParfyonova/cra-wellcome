@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Scene.css'
 import Toggler from './Toggler';
+import Indicator from './Indicator';
+
+
 class Scene extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +22,7 @@ class Scene extends Component {
         const cN = `scene ` + theme;
         return (
             <div className={cN}>
-                Current theme is light {theme}
+                <Indicator theme = {theme}/>
                 <Toggler callbackParent={this.setTheme}/>
             </div>
         );
