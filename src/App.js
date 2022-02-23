@@ -41,13 +41,8 @@ class App extends React.Component{
     const copyArray = [...users];
 //const copy = JSON.parse(JCON.stringify(users));
     this.setState({
-      users:copyArray.sort((a,b) => {
-        if (isDirectSort){
-          return a.id - b.id
-        }
-        return b.id - a.id
-       
-      }),
+      users:copyArray.sort((prev,next) => 
+        isDirectSort ? prev.id - next.id : next.id - prev.id),
       isDirectSort: !isDirectSort
     })
   }
@@ -55,7 +50,7 @@ class App extends React.Component{
 render () {
   const {users} = this.state;
   const liArray = users.map((user)=> {
-    return   <li> 
+    return   <li key = {user.id}> 
        <Aloha name = {`${user.firstName} ${user.lastName}`} isGreeting/>
     </li>
   })

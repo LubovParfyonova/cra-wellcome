@@ -18,6 +18,10 @@ class Aloha extends Component{
     render () {
         const {name} = this.props;
         const {isGreeting} = this.state;
+        
+        if (!isGreeting) {
+            return <h1>Пока, {name}</h1>
+        }
         return (
             <>
         <h1> {isGreeting ? "Hello" : "Goodbye"}, {name}</h1>
