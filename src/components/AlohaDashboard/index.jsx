@@ -46,12 +46,30 @@ class AlohaDashboard extends React.Component{
         })
       }
 
-    
+      formSubmitHandler = (event) => {
+        event.preventDefault();
+        const {users} = this.state;
+        const [firstName, lastName] = event.target.userName.value.split(' ');
+          const userObj = {
+              firstName,
+              lastName,
+              id: users.length + 1
+          };
+
+          this.setState({
+              users: [...users, userObj]
+          })
+    }
+
     render () {
       const {users} = this.state;
      
       return (
       <>
+        <form onSubmit={this.formSubmitHandler}>
+            <input type="text" name="userName" />
+            <button type="submit">Click to send</button>
+        </form>
       <button onClick={this.sortUser}>Sort user</button>
         <AlohaList users = {users} />
       </>
