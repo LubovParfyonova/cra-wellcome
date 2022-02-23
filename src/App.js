@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import AlohaDashboard from './components/AlohaDashboard';
+//import AlohaDashboard from './components/AlohaDashboard';
 //import Aloha from './components/Greeting';
-
+import Scene from './components/Scene'
 
 function App (){
-
-  return <AlohaDashboard />
+ return <Scene />
 
 }
 export default App;
