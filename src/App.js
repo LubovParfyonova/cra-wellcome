@@ -49,10 +49,9 @@ class App extends React.Component{
 
 render () {
   const {users} = this.state;
-  const liArray = users.map((user)=> {
-    return   <li key = {user.id}> 
-       <Aloha name = {`${user.firstName} ${user.lastName}`} isGreeting/>
-    </li>
+  const liArray = users.map(({firstName, lastName, id})=> {
+    return  <Aloha name = {`${firstName} ${lastName}`} isGreeting key = {id} id = {id}/>
+    
   })
   return (
 
