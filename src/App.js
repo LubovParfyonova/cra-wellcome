@@ -1,31 +1,57 @@
 import React from 'react';
 import './App.css';
-import Greeting from './components/Greeting';
+import Aloha from './components/Greeting';
 import { Fragment } from 'react';
 
-function App() {
+class App extends React.Component{
+  constructor (props) {
+    super(props);
+    this.state = {
+      users: [{
+        id: 1,
+        firstName: 'John',
+        lastName: 'Doe',
+      },
+      {
+        id: 2,
+        firstName: 'Jane',
+        lastName: 'Doe',
+      },
+      {
+        id: 3,
+        firstName: 'Myke',
+        lastName: 'Doe',
+      },
+      {
+        id: 4,
+        firstName: 'Nyke',
+        lastName: 'Doe',
+      },
+      {
+        id: 5,
+        firstName: 'Gyke',
+        lastName: 'Doe',
+      },
+    ]
+    }
+  }
 
-const user = {
-  firstName: 'Vlad',
-  photo: 'https://www.shareicon.net/data/512x512/2016/10/25/847809_user_512x512.png'
-}
-const user2 = {
-  firstName: 'Masha',
-  photo: 'https://www.shareicon.net/data/512x512/2016/10/25/847809_user_512x512.png'
-}
-const user3 = {
-  firstName: 'Dasha',
-  photo: 'https://www.shareicon.net/data/512x512/2016/10/25/847809_user_512x512.png'
-}
-
+render () {
+  const {users} = this.state;
+  const liArray = users.map((user)=> {
+    return   <li> 
+       <Aloha name = {`${user.firstName} ${user.lastName}`} isGreeting/>
+    </li>
+  })
+  console.log(liArray);
   return (
 
   <>
-    <Greeting user = {user} isGreeting/>
-    <Greeting user = {user2}/>
-    <Greeting user = {user3} isGreeting/>
+   <ul>
+    {liArray}
+   </ul>
   </>
   )
 }
-
+}
 export default App;
